@@ -145,7 +145,7 @@ int write_num(int ind, char buffer[],
 }
 
 /**
- * write_unsgnd - Writes an unsigned number
+ * write_unsigned - Writes an unsigned number
  * @is_negative: Number indicating if the num is negative
  * @ind: Index at which the number starts in the buffer
  * @buffer: Array of chars
@@ -244,8 +244,7 @@ int write_pointer(char buffer[], int ind, int length,
 			buffer[--ind] = extra_c;
 	return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
 		}
-		else if (!(flags & F_MINUS) && padd == '0'
-			/* extra char to left of padd */
+else if (!(flags & F_MINUS) && padd == '0') /* extra char to left of padd */
 		{
 			if (extra_c)
 				buffer[--padd_start] = extra_c;
@@ -254,7 +253,7 @@ int write_pointer(char buffer[], int ind, int length,
 			return (write(1, &buffer[padd_start], i - padd_start) +
 			write(1, &buffer[ind], length - (1 - padd_start) - 2));
 		}
-	}
+		}
 	buffer[--ind] = 'x';
 	buffer[--ind] = '0';
 	if (extra_c)
